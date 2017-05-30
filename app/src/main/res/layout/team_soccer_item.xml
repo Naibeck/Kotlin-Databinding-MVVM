@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="0dp"
+        android:onClick="@{viewModel.onTeamClicked}">
 
         <ImageView
             android:id="@+id/teamLogo"

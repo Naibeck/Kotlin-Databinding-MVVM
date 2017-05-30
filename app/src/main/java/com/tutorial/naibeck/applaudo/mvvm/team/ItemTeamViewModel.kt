@@ -9,7 +9,7 @@ import ionicunity.plugin.applaudo.com.network.model.SoccerTeam
 /**
  * Created by Alex Gomez on 5/29/2017.
  */
-class ItemTeamViewModel(val soccerTeam: SoccerTeam) {
+class ItemTeamViewModel(val soccerTeam: SoccerTeam, val teamClickListener: OnTeamClick) {
     val logoUrl = ObservableField<String>()
     val name = ObservableField<String>()
 
@@ -18,10 +18,8 @@ class ItemTeamViewModel(val soccerTeam: SoccerTeam) {
         name.set(soccerTeam.name)
     }
 
-    fun onTeamClicked(view: View) = with(view) {
-        val intent = Intent(context, TeamDetailActivity::class.java)
-        intent.putExtra("", soccerTeam)
-        context.startActivity(intent)
+    fun onTeamClicked(view: View) {
+       teamClickListener.launchDetail(soccerTeam)
     }
 
     interface OnTeamClick {

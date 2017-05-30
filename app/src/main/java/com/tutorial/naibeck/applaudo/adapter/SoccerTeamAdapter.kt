@@ -14,11 +14,11 @@ import ionicunity.plugin.applaudo.com.network.model.SoccerTeam
 /**
  * Created by Alex Gomez on 5/29/2017.
  */
-class SoccerTeamAdapter(val teamList: List<SoccerTeam>) : RecyclerView.Adapter<SoccerTeamAdapter.ViewHolder>() {
+class SoccerTeamAdapter(val teamList: List<SoccerTeam>, val teamClickListener: ItemTeamViewModel.OnTeamClick) : RecyclerView.Adapter<SoccerTeamAdapter.ViewHolder>() {
     override fun getItemCount(): Int = teamList.size
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        holder?.teamItemBinding?.viewModel = ItemTeamViewModel(teamList[position])
+        holder?.teamItemBinding?.viewModel = ItemTeamViewModel(teamList[position], teamClickListener)
         holder?.teamItemBinding?.executePendingBindings()
     }
 
