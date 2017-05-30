@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.tutorial.naibeck.applaudo.R
 import com.tutorial.naibeck.applaudo.databinding.TeamSoccerItemBinding
+import com.tutorial.naibeck.applaudo.mvvm.team.ItemTeamViewModel
 import ionicunity.plugin.applaudo.com.network.model.SoccerTeam
 
 /**
@@ -17,7 +18,7 @@ class SoccerTeamAdapter(val teamList: List<SoccerTeam>) : RecyclerView.Adapter<S
     override fun getItemCount(): Int = teamList.size
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        holder?.teamItemBinding?.teamName?.text = teamList[position].name
+        holder?.teamItemBinding?.viewModel = ItemTeamViewModel(teamList[position])
         holder?.teamItemBinding?.executePendingBindings()
     }
 
