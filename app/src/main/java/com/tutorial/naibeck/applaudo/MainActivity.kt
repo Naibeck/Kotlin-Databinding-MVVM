@@ -5,12 +5,13 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import com.tutorial.naibeck.applaudo.adapter.SoccerTeamAdapter
 import com.tutorial.naibeck.applaudo.databinding.ActivityMainBinding
 import com.tutorial.naibeck.applaudo.mvvm.team.ItemTeamViewModel
 import ionicunity.plugin.applaudo.com.network.SoccerTeamManager
 import ionicunity.plugin.applaudo.com.network.model.SoccerTeam
+
+import android.util.Log;
 
 class MainActivity : AppCompatActivity(), ItemTeamViewModel.OnTeamClick {
     private val soccerTeamManager by lazy {
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity(), ItemTeamViewModel.OnTeamClick {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val mainBinding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val mainBinding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.testing)
         soccerTeamManager.getSoccerTeams()
                 .singleOrError()
                 .subscribe({ startAdapter(mainBinding.soccerTeamList, it) },
